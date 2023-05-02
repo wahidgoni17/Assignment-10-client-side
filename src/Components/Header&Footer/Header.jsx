@@ -11,7 +11,7 @@ const Header = () => {
       .catch((error) => console.log(error));
   };
   return (
-    <div className="navbar px-3 py-4 bg-gray-100">
+    <div className="navbar px-3 py-4 bg-slate-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

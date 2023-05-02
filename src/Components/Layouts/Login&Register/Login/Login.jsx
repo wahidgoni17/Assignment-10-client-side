@@ -7,10 +7,10 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 const Login = () => {
   const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
   const [show, setShow] = useState(false);
-  //   const navigate = useNavigate();
-  //   const location = useLocation();
-  //   console.log("login page location", location);
-  //   const from = location.state?.from?.pathname || "/category/0";
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log("login page location", location);
+    const from = location.state?.from?.pathname || "/chef/0";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -23,7 +23,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
-        // navigate(from, { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
