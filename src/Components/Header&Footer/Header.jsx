@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Providers/Authprovider";
+import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="navbar px-3 py-4 bg-gray-100">
       <div className="navbar-start">
@@ -32,12 +40,6 @@ const Header = () => {
             <li>
               <Link to="/blogs">Blogs</Link>
             </li>
-            <li>
-              <Link to="/aboutUs">About Us</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
           </ul>
         </div>
         <Link to="/">
@@ -52,23 +54,24 @@ const Header = () => {
           <li>
             <Link to="/blogs">Blogs</Link>
           </li>
-          <li>
-            <Link to="/aboutUs">About Us</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login">
-          <button className="btn btn-outline btn-primary text-white mr-2">
-            Log In
+        {user && <div className="tooltip" data-tip={user ? user.displayName : user.email }><FaUserCircle className="mr-3 text-4xl"></FaUserCircle></div>}
+        {user ? (
+          <button
+            onClick={handleLogOut}
+            className="btn btn-outline btn-primary text-white"
+          >
+            Log Out
           </button>
-        </Link>
-        <button className="btn btn-outline btn-primary text-white">
-          Log Out
-        </button>
+        ) : (
+          <Link to="/login">
+            <button className="btn btn-outline btn-primary text-white mr-2">
+              Log In
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );
