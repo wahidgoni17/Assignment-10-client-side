@@ -24,7 +24,7 @@ const Login = () => {
                 </div>
                 <input className='btn-submit mb-5 btn btn-primary' type="submit" value="Login" />
             </form>
-            <p><small>New to Epicurious? <Link className='text-violet-500' to="/register">Create New Account</Link></small></p>
+            <p>New to Epicurious? <Link className='text-violet-500' to="/register">Create New Account</Link></p>
         </div>
         </div>
     );
