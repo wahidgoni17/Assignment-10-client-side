@@ -4,7 +4,6 @@ import { FaThumbsUp } from "react-icons/fa";
 import LazyLoad from 'react-lazy-load';
 
 const SingleChef = ({chef}) => {
-    console.log(chef)
     const {id,
         name, 
         num_recipes, 

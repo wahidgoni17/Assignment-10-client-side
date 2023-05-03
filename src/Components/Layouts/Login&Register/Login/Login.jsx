@@ -10,7 +10,6 @@ const Login = () => {
   const [show, setShow] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
-    console.log("login page location", location);
     const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
@@ -68,9 +67,9 @@ const Login = () => {
               required
             />
             <p onClick={() => setShow(!show)}>
-              <p>
+              <small>
                 {show ? <span>Hide Password</span> : <span>Show Password</span>}
-              </p>
+              </small>
             </p>
           </div>
           <input
