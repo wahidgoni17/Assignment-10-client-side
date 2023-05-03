@@ -1,13 +1,14 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import ChefDetails from './ChefDetails';
 
 const ChefRecipe = () => {
-    const {id} = useParams()
-    const recipe = useLoaderData()
-    console.log(recipe)
+    const chefData = useLoaderData()
     return (
         <div>
-            { id && <h2>This is recipe section: {recipe.length}</h2>}
+            {
+                chefData.map(data=><ChefDetails key={data.id} data={data}></ChefDetails>)
+            }
         </div>
     );
 };
