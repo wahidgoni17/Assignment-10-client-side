@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
 
 const Recipe = ({ recipe }) => {
   const { recipe_name, cooking_method, ingredients, rating } = recipe;
-  console.log(recipe);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+    const handleFavourite = () =>{
+        toast('Add To Favourite Successfully')
+        setButtonDisabled(true)
+    }
+
   return (
     <div className="card w-96 bg-slate-100 shadow-xl">
       <div className="card-body">
@@ -16,7 +22,8 @@ const Recipe = ({ recipe }) => {
         </div>
         <p><span className="text-xl">Rating:</span> {rating}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary"><FaHeart/> Add Favourite</button>
+          <button onClick={handleFavourite} disabled={buttonDisabled} className="btn btn-primary"><FaHeart/> Add Favourite</button>
+          <ToastContainer/>
         </div>
       </div>
     </div>
@@ -24,3 +31,23 @@ const Recipe = ({ recipe }) => {
 };
 
 export default Recipe;
+
+// import React, { useState } from 'react';
+
+// function App() {
+//   const [buttonDisabled, setButtonDisabled] = useState(false);
+
+//   const handleClick = () => {
+//     setButtonDisabled(true);
+//   };
+
+//   return (
+//     <div>
+//       <button onClick={handleClick} disabled={buttonDisabled}>
+//         Click Me
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default App;

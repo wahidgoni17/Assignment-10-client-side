@@ -57,7 +57,7 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        {user && <div className="tooltip" data-tip={user ? user.displayName : user.email }><FaUserCircle className="mr-3 text-4xl"></FaUserCircle></div>}
+        {user && <div className="tooltip" data-tip={user?.email }><FaUserCircle className="mr-3 text-4xl"></FaUserCircle></div>}
         {user ? (
           <button
             onClick={handleLogOut}

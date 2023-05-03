@@ -42,7 +42,7 @@ const ChefDetails = ({ data }) => {
       </div>
       <div className="grid grid-cols-1 my-10 mx-10 lg:grid-cols-3">
         {recipes.map((recipe) => (
-          <Recipe key={recipes.r_id} recipe={recipe}></Recipe>
+          <Recipe key={recipe.r_id} recipe={recipe}></Recipe>
         ))}
       </div>
     </div>
