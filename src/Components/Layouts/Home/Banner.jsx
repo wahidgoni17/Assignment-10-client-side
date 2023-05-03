@@ -10,7 +10,7 @@ const Banner = () => {
           backgroundImage: `url(${food})`,
         }}
       >
-        <div className="hero-overlay bg-opacity-30"></div>
+        <div className="hero-overlay bg-opacity-50"></div>
         <div className="hero-content text-center text-white">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">Satisfy Your Cravings with Us</h1>
