@@ -17,7 +17,7 @@ const Banner = () => {
             <p className="mb-5">
             Discover new flavors and delight your taste buds,Join our community of foodies and share your culinary journey,Cook with confidence: our recipes are tried and true
             </p>
-            <button className="btn btn-primary">Explore</button>
+            <button className="btn btn-error text-white">Explore</button>
           </div>
         </div>
       </div>

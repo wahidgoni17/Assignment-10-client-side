@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Providers/Authprovider";
 import { FaUserCircle } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import ActiveLink from "../Routes/ActiveLink";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -9,6 +11,8 @@ const Header = () => {
     logOut()
       .then()
       .catch((error) => console.log(error));
+
+    toast.success("LogOut Successfully")
   };
   return (
     <div className="navbar px-3 py-4 bg-slate-100">
@@ -35,10 +39,10 @@ const Header = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-100 rounded-box w-52"
           >
             <li>
-              <Link to="/">Home</Link>
+              <ActiveLink to="/">Home</ActiveLink>
             </li>
             <li>
-              <Link to="/blogs">Blogs</Link>
+              <ActiveLink to="/blogs">Blogs</ActiveLink>
             </li>
           </ul>
         </div>
@@ -49,10 +53,10 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu text-lg menu-horizontal px-1">
           <li>
-            <Link to="/">Home</Link>
+            <ActiveLink to="/">Home</ActiveLink>
           </li>
           <li>
-            <Link to="/blogs">Blogs</Link>
+            <ActiveLink to="/blogs">Blogs</ActiveLink>
           </li>
         </ul>
       </div>
@@ -61,17 +65,21 @@ const Header = () => {
         {user ? (
           <button
             onClick={handleLogOut}
-            className="btn btn-outline btn-primary text-white"
+            className="btn btn-outline btn-error text-white"
           >
             Log Out
           </button>
         ) : (
-          <Link to="/login">
-            <button className="btn btn-outline btn-primary text-white mr-2">
+          <ActiveLink to="/login">
+            <button className="btn btn-outline btn-error text-white mr-2">
               Log In
             </button>
-          </Link>
+          </ActiveLink>
         )}
+        <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        pauseOnHover={false}/>
       </div>
     </div>
   );

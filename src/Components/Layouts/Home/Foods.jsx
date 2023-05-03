@@ -14,7 +14,7 @@ const Foods = () => {
                 <h3 className='text-4xl font-bold py-2'>Explore Awesome Meals</h3>
                 <p className='text-slate-600'>Discover new flavors and delight your taste buds,From kitchen to table: easy and delicious meals</p>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-3'>
+            <div className='flex flex-col lg:flex-row gap-3'>
                 {
                     foods.map(food => <SingleFood key={food.id} food={food}></SingleFood>)
                 }

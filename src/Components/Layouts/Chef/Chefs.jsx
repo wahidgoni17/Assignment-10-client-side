@@ -26,14 +26,14 @@ const Chefs = () => {
         Meet the culinary geniuses behind our delicious recipes,Talented chefs bringing you inspired dishes from around the world,<br /> Experience gourmet cooking at home with our expert chefs
         </p>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 px-20 py-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 px-5 lg:px-20 pt-10 pb-5">
         {chefs.map((chef) => (
           <SingleChef key={chef.id} chef={chef}></SingleChef>
         ))}
       </div>
-      <div className="text-center mt-5 py-10">
+      <div className="text-center mt-5 py-5">
         {!showAll && (
-          <button onClick={handleShowAll} className="btn btn-primary">
+          <button onClick={handleShowAll} className="btn btn-error text-white">
             Show All
           </button>
         )}

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/Authprovider";
+import { ToastContainer, toast } from 'react-toastify';
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -8,8 +9,6 @@ const Register = () => {
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
-    const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
     setError("");
@@ -17,7 +16,6 @@ const Register = () => {
       setError("password must be 6 characters or longer");
       return;
     }
-    console.log(name, photo, email, password);
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
@@ -26,6 +24,8 @@ const Register = () => {
       .catch((error) => {
         console.log(error);
       });
+      toast.success('Registered Successfully')
+
   };
   return (
     <div className="form-container py-8">
@@ -52,6 +52,10 @@ const Register = () => {
           type="submit"
           value="Sign Up"
         />
+        <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        pauseOnHover={false}/>
         <p className="my-5">
           Already have an account?{" "}
           <Link className="text-violet-500" to="/login">

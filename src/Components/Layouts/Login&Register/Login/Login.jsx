@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { AuthContext } from "../../../Providers/Authprovider";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
   const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
@@ -10,7 +11,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     console.log("login page location", location);
-    const from = location.state?.from?.pathname || "/chef/0";
+    const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -28,6 +29,7 @@ const Login = () => {
       .catch((error) => {
         console.log(error);
       });
+    toast.success('Login Successfully')
   };
 
   const handleGoogleSignIn = () => {
@@ -79,6 +81,10 @@ const Login = () => {
             type="submit"
             value="Login"
           />
+          <ToastContainer
+          position="top-center"
+          autoClose={1000}
+          pauseOnHover={false}/>
         </form>
         <button
           onClick={handleGoogleSignIn}
