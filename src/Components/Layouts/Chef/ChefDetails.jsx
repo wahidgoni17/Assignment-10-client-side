@@ -1,6 +1,7 @@
 import React from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import Recipe from "./Recipe";
+import LazyLoad from "react-lazy-load";
 
 const ChefDetails = ({ data }) => {
   const {
@@ -19,10 +20,12 @@ const ChefDetails = ({ data }) => {
     <div>
       <div className="hero my-5">
         <div className="hero-content flex-col lg:flex-row gap-6">
-          <img
-            src={photo_url}
-            className="max-w-sm h-64 rounded-lg shadow-2xl"
-          />
+          <LazyLoad threshold={1}>
+            <img
+              src={photo_url}
+              className="max-w-sm h-64 rounded-lg shadow-2xl"
+            />
+          </LazyLoad>
           <div className="py-5">
             <h1 className="text-5xl font-bold">{name}</h1>
             <p className="py-3 text-lg">{bio}</p>

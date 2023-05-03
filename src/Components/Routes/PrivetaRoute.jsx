@@ -5,8 +5,6 @@ import { AuthContext } from "../Providers/Authprovider";
 const PrivetaRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
-  console.log(location);
-
   if (loading) {
     return (
       <div className="text-center my-10">

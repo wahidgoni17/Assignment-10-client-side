@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       {
         path: '/recipe/:id',
         element: <PrivetaRoute><ChefRecipe></ChefRecipe></PrivetaRoute>,
-        loader:({params})=>fetch(`http://localhost:5496/chef/${params.id}`)
+        loader:({params})=>fetch(`https://assignment-10-server-side-wahidgoni17.vercel.app/chef/${params.id}`)
       },
       {
         path: "/contact",

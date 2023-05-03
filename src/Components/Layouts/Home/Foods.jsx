@@ -4,7 +4,7 @@ import SingleFood from './SingleFood';
 const Foods = () => {
     const [foods, setFoods] = useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5496/food`)
+        fetch(`https://assignment-10-server-side-wahidgoni17.vercel.app/food`)
         .then(res=>res.json())
         .then(data=>setFoods(data))
     },[])

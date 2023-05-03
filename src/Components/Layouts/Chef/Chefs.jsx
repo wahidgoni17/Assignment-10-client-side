@@ -5,7 +5,7 @@ const Chefs = () => {
     const [chefs, setChefs] = useState([])
     const [showAll, setShowAll] = useState(false);
     useEffect(()=>{
-        fetch(`http://localhost:5496/chef`)
+        fetch(`https://assignment-10-server-side-wahidgoni17.vercel.app/chef`)
         .then(res => res.json())
         .then(data => {
             if (showAll) {
